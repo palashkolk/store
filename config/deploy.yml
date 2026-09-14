@@ -78,11 +78,12 @@ aliases:
 # Recommended to change this to a mounted volume path that is backed up off server.
 volumes:
   - "store_storage:/rails/storage"
+asset_path: /rails/public/assets
 
-boot:
-  limit: 1
-  prebench:
-    - run: bin/rails db:prepare
+# boot:
+#   limit: 1
+#   prebench:
+#     - run: bin/rails db:prepare
 
 # Bridge fingerprinted assets, like JS and CSS, between versions to avoid
 # hitting 404 on in-flight requests. Combines all files from new and old
@@ -110,6 +111,10 @@ ssh:
   user: ubuntu
   keys:
     - "~/.ssh/oracle-vm.key"
+
+production:
+  adapter: sqlite3
+  database: storage/production.sqlite3
 
 # Use accessory services (secrets come from .kamal/secrets).
 # accessories:
