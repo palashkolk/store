@@ -80,6 +80,8 @@ volumes:
   - "store_storage:/rails/storage"
 asset_path: /rails/public/assets
 
+
+
 # boot:
 #   limit: 1
 #   prebench:
@@ -112,9 +114,7 @@ ssh:
   keys:
     - "~/.ssh/oracle-vm.key"
 
-production:
-  adapter: sqlite3
-  database: storage/production.sqlite3
+
 
 # Use accessory services (secrets come from .kamal/secrets).
 # accessories:
