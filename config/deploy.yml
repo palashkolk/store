@@ -29,8 +29,9 @@ proxy:
   ssl: true
   host: palashkolk-store.duckdns.org
   app_port: 3000
-  publish:
-    - "8080:3000"
+  host_port: 8000
+  # publish:
+  #   - "8080:3000"
 
 # Where you keep your container images.
 registry:
