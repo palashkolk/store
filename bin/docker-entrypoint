@@ -1,8 +1,20 @@
-#!/bin/bash -e
+# #!/bin/bash -e
 
-# If running the rails server then create or migrate existing database
-if [ "${@: -2:1}" == "./bin/rails" ] && [ "${@: -1:1}" == "server" ]; then
+# # If running the rails server then create or migrate existing database
+# if [ "${@: -2:1}" == "./bin/rails" ] && [ "${@: -1:1}" == "server" ]; then
+#   ./bin/rails db:prepare
+# fi
+
+# exec "${@}"
+
+
+#!/bin/bash
+set -e
+
+# Run database setup automatically on container boot
+if [ "$1" = "./bin/rails" ] && [ "$2" = "server" ]; then
+  echo "== Running Production Database Migrations =="
   ./bin/rails db:prepare
 fi
 
-exec "${@}"
+exec "$@"
