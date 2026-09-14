@@ -9,6 +9,10 @@ servers:
   web:
     hosts:
       - 68.233.118.162
+  # healthcheck:
+  #     path: /
+  #     interval: 2
+  #     timeout: 5
   # job:
   #   hosts:
   #     - 192.168.0.1
@@ -23,7 +27,7 @@ servers:
 #
 proxy:
   ssl: true
-  host: palashkolk.duckdns.org
+  host: palashkolk-store.duckdns.org
 
 # Where you keep your container images.
 registry:
@@ -74,6 +78,11 @@ aliases:
 # Recommended to change this to a mounted volume path that is backed up off server.
 volumes:
   - "store_storage:/rails/storage"
+
+boot:
+  limit: 1
+  prebench:
+    - run: bin/rails db:prepare
 
 # Bridge fingerprinted assets, like JS and CSS, between versions to avoid
 # hitting 404 on in-flight requests. Combines all files from new and old
