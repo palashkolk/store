@@ -2,11 +2,8 @@
 set -e
 
 # Run database setup automatically on container boot
-if [ "$1" = "./bin/rails" ] && [ "$2" = "server" ]; then
-  echo "== Running Production Database Migrations =="
-  ./bin/rails db:prepare
-fi
-
+echo "== Executing Production Database Migrations =="
+./bin/rails db:prepare
 exec "$@"
 ##!/bin/bash -e
 # # If running the rails server then create or migrate existing database
