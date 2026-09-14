@@ -9,6 +9,10 @@ servers:
   web:
     hosts:
       - 68.233.118.162
+
+release:
+  command: bin/rails db:prepare
+
   # healthcheck:
   #     path: /
   #     interval: 2
