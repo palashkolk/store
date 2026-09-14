@@ -26,13 +26,10 @@ servers:
 # Don't use this when deploying to multiple web servers (then you have to terminate SSL at your load balancer).
 #
 proxy:
-  ssl: true
+  ssl: false
   host: palashkolk-store.duckdns.org
   app_port: 3000
-  run:
-    host_port: 8080
-  # publish:
-  #   - "8080:3000"
+
 
 # Where you keep your container images.
 registry:
