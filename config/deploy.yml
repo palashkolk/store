@@ -9,7 +9,6 @@ servers:
   web:
     hosts:
       - 68.233.118.162
-    port: 3000
   # healthcheck:
   #     path: /
   #     interval: 2
@@ -29,9 +28,9 @@ servers:
 proxy:
   ssl: true
   host: palashkolk-store.duckdns.org
+  app_port: 3000
   publish:
     - "8080:3000"
-  # app_port: 3000
 
 # Where you keep your container images.
 registry:
