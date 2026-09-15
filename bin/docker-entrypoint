@@ -4,7 +4,8 @@ if [ "${@: -2:1}" == "./bin/rails" ] && [ "${@: -1:1}" == "server" ]; then
   ./bin/rails db:prepare
 
   echo "Preparing Solid Queue database..."
-  env DISABLE_DATABASE_ENVIRONMENT_CHECK=1 ./bin/rails db:schema:load:queue || true
+  ./bin/rails runner 'ActiveRecord::Tasks::DatabaseTasks.load_schema(ActiveRecord::Base.configurations.configs_for(env_name: "production", name: "queue"), :ruby, "db/queue_schema.rb")' || true
+  # env DISABLE_DATABASE_ENVIRONMENT_CHECK=1 ./bin/rails db:schema:load:queue || true
 fi
 
 exec "${@}"
