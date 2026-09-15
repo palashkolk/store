@@ -6,8 +6,8 @@ image: palashkolk/store
 
 boot:
   limit: 1         # Boots containers sequentially
-  proxy:
-    timeout: 60    # Gives the app up to 60 seconds to open port 3000
+  # proxy:
+  #   timeout: 60    # Gives the app up to 60 seconds to open port 3000
 
 # Deploy to these servers.
 servers:
