@@ -4,6 +4,11 @@ service: store
 # Name of the container image (use your-user/app-name on external registries).
 image: palashkolk/store
 
+boot:
+  limit: 1         # Boots containers sequentially
+  proxy:
+    timeout: 60    # Gives the app up to 60 seconds to open port 3000
+
 # Deploy to these servers.
 servers:
   web:
@@ -19,8 +24,8 @@ servers:
       - 68.233.118.162
     cmd: bin/rails solid_queue:start
     proxy: false
-    options:
-      v: "store_storage:/rails/storage"
+    # options:
+    #   v: "store_storage:/rails/storage"
 # Enable SSL auto certification via Let's Encrypt and allow for multiple apps on a single web server.
 # If used with Cloudflare, set encryption mode in SSL/TLS setting to "Full" to enable CF-to-app encryption.
 #
