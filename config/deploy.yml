@@ -17,9 +17,10 @@ servers:
   job:
     hosts:
       - 68.233.118.162
-    cmd: bin/rails solid_queue :start
-    options:
-      v: "store_storage:/rails/storage"
+    cmd: bin/rails solid_queue:start
+    proxy: false
+    # options:
+    #   v: "store_storage:/rails/storage"
 # Enable SSL auto certification via Let's Encrypt and allow for multiple apps on a single web server.
 # If used with Cloudflare, set encryption mode in SSL/TLS setting to "Full" to enable CF-to-app encryption.
 #
