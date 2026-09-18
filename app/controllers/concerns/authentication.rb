@@ -14,6 +14,9 @@ module Authentication
       allow_unauthenticated_access **options
       before_action -> { redirect_to root_path if authenticated? }, **options
     end
+    def admin_access_only(**options)
+      before_action -> { redirect_to root_path, alert: "You aren't allowed to do that." unless authenticated? && Current.user.admin? }, **options
+    end
   end
 
 
