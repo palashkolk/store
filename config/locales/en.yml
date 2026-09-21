@@ -38,3 +38,8 @@ en:
       user:
         password_challenge: "Current_password"
 
+  store:
+    products:
+      index:
+        title: "Products"
+
