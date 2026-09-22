@@ -10,7 +10,7 @@ class SignUpsController < ApplicationController
       start_new_session_for(@user)
       redirect_to root_path
     else
-      render :show, status: :unpropcessable_entity
+      render :show, status: :unprocessable_entity
     end
   end
 
