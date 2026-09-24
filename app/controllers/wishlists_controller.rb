@@ -4,7 +4,7 @@ class WishlistsController < ApplicationController
   before_action :set_wishlist, only: %i[ edit update destroy ]
 
   def index
-    @wishlist = Current.user.wishlists
+    @wishlists = Current.user.wishlists
   end
 
   def show
