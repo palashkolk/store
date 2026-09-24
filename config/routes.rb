@@ -19,7 +19,9 @@ Rails.application.routes.draw do
     resources :subscribers, only: [ :create ]
   end
   resource :unsubscribe, only: [ :show ]
-  resources :wishlists
+  resources :wishlists do
+    resources :wishlist_products, only: [ :update, :destroy ], module: :wishlists
+  end
   resource :session
   resources :passwords, param: :token
   resource :sign_up
