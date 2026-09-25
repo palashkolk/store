@@ -4,6 +4,6 @@ tshirt:
   name: T-shirt
   inventory_count: 15
 
-umbrella:
-  name: Umbrella
-  inventory_count: 30
+shoes:
+  name: shoes
+  inventory_count: 0

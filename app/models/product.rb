@@ -3,8 +3,10 @@ class Product < ApplicationRecord
 
     has_many :wishlist_products, dependent: :destroy
     has_many :wishlists, through: :wishlist_products
+    has_many :subscribers, dependent: :destroy
     has_one_attached :featured_image
     has_rich_text :description
     validates :name, presence: true
     validates :inventory_count, numericality: { greater_than_or_equal_to: 0 }
+    validates :subscribers_count, numericality: { greater_than_or_equal_to: 0 }
 end
